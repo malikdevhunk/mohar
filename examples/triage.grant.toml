@@ -1,0 +1,7 @@
+[grant]
+console = true
+fs_read = ["./inbox"]
+
+[limits]
+fuel = 5000000
+memory_mib = 64

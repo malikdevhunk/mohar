@@ -1,0 +1,58 @@
+[workspace]
+resolver = "2"
+members = [
+    "crates/mohar-diag",
+    "crates/mohar-syntax",
+    "crates/mohar-std",
+    "crates/mohar-types",
+    "crates/mohar-ir",
+    "crates/mohar-interp",
+    "crates/mohar-seal",
+    "crates/mohar-cli",
+    "crates/mohar-wasm",
+]
+exclude = ["fuzz"]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2024"
+license = "MIT"
+authors = ["Saddam Malik"]
+repository = "https://github.com/malikdevhunk/mohar"
+rust-version = "1.87"
+
+[workspace.lints.rust]
+unsafe_code = "forbid"
+
+[workspace.dependencies]
+mohar-diag = { path = "crates/mohar-diag" }
+mohar-syntax = { path = "crates/mohar-syntax" }
+mohar-std = { path = "crates/mohar-std" }
+mohar-types = { path = "crates/mohar-types" }
+mohar-ir = { path = "crates/mohar-ir" }
+mohar-interp = { path = "crates/mohar-interp" }
+mohar-seal = { path = "crates/mohar-seal" }
+clap = { version = "4.5", features = ["derive"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+serde_jcs = "0.1"
+sha3 = "=0.10.8"
+sha2 = "=0.10.9"
+hkdf = "=0.12.4"
+chacha20poly1305 = "=0.10.1"
+subtle = "=2.6.1"
+zeroize = { version = "=1.8.2", features = ["derive"] }
+ml-kem = { version = "=0.3.4", default-features = false, features = ["alloc", "zeroize", "getrandom"] }
+ml-dsa = { version = "=0.1.2", default-features = false, features = ["alloc", "zeroize", "getrandom"] }
+slh-dsa = { version = "=0.1.0", default-features = false, features = ["alloc"] }
+x25519-dalek = { version = "=2.0.1", default-features = false, features = ["static_secrets", "zeroize"] }
+p256 = { version = "=0.11.1", default-features = false, features = ["ecdsa"] }
+hex = "0.4"
+toml = "0.8"
+thiserror = "=2.0.17"
+proptest = "=1.9.0"
+rand_core = { version = "=0.6.4", features = ["getrandom"] }
+# Exact pre-release slh-dsa 0.1.0 was published against. A later 2.3 pre
+# changes the trait and fails to compile that crate. This is signature 2;
+# ml-dsa links signature 3 beside it.
+signature = "=2.3.0-pre.4"

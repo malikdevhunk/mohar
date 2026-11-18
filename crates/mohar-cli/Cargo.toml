@@ -1,0 +1,30 @@
+[package]
+name = "mohar-cli"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+authors.workspace = true
+repository.workspace = true
+rust-version.workspace = true
+description = "The mohar command line."
+
+[[bin]]
+name = "mohar"
+path = "src/main.rs"
+
+[dependencies]
+mohar-diag = { workspace = true }
+mohar-syntax = { workspace = true }
+mohar-types = { workspace = true }
+mohar-ir = { workspace = true }
+mohar-interp = { workspace = true }
+mohar-seal = { workspace = true }
+mohar-std = { workspace = true }
+clap = { workspace = true }
+serde_json = { workspace = true }
+
+[dev-dependencies]
+mohar-std = { workspace = true }
+
+[lints]
+workspace = true

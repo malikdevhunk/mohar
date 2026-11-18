@@ -1,0 +1,8 @@
+[grant]
+fs_read = ["./inbox"]
+model = true
+tools = ["mail.send"]
+
+[limits]
+fuel = 5000000
+memory_mib = 64

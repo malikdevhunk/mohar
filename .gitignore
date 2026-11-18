@@ -1,0 +1,14 @@
+/target/
+**/*.rs.bk
+.DS_Store
+*.mhr
+*.mohar
+*.key
+*.pub
+!examples/**/*.mohar
+playground/pkg/
+fuzz/target/
+fuzz/artifacts/
+fuzz/corpus/
+*.snap.new
+.mohar-cache/

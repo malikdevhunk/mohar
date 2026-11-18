@@ -1,0 +1,7 @@
+[crypto]
+policy = "pq-hybrid"
+allow_legacy_until = "2030-01-01"
+
+[limits]
+fuel = 5000000
+memory_mib = 64

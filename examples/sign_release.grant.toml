@@ -1,0 +1,8 @@
+[grant]
+console = true
+rand = true
+fs_read = ["./dist"]
+
+[limits]
+fuel = 5000000
+memory_mib = 64

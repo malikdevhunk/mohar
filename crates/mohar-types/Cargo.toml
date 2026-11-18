@@ -1,0 +1,19 @@
+[package]
+name = "mohar-types"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+authors.workspace = true
+repository.workspace = true
+rust-version.workspace = true
+description = "Name resolution and the Mohar type checker."
+
+[dependencies]
+mohar-diag = { workspace = true }
+mohar-syntax = { workspace = true }
+
+[dev-dependencies]
+proptest = { workspace = true }
+
+[lints]
+workspace = true

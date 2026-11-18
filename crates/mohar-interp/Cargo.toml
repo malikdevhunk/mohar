@@ -1,0 +1,18 @@
+[package]
+name = "mohar-interp"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+authors.workspace = true
+repository.workspace = true
+rust-version.workspace = true
+description = "Tree-walking interpreter and capability host for Mohar."
+
+[dependencies]
+mohar-diag = { workspace = true }
+mohar-syntax = { workspace = true }
+mohar-types = { workspace = true }
+mohar-std = { workspace = true }
+
+[lints]
+workspace = true
