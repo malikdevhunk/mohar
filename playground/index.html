@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mohar</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font: 16px/1.5 "Iowan Old Style", Palatino, Georgia, serif; max-width: 40rem; margin: 3rem auto; padding: 0 1rem; }
+    code, pre { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.9em; }
+    pre { padding: 1rem; overflow: auto; background: rgba(127,127,127,0.12); }
+  </style>
+</head>
+<body>
+  <h1>Mohar</h1>
+  <p>A small language where secrets, authority and untrusted input are types, and the compiler signs an authority seal with ML-DSA.</p>
+  <pre>fn main(caps: Caps) {
+    let out = caps.console();
+    out.println("namaste, duniya");
+}</pre>
+  <p>This page is static. The checker lives in the <code>mohar-wasm</code> crate and runs today as a normal Rust library; a browser build of that crate is the next step, not part of the v0.1 tag. Until then:</p>
+  <pre>mohar check hello.mo
+mohar review hello.mo</pre>
+  <p>Created by Saddam Malik. The compiler is not a proof, and the post-quantum crates it links have not been independently audited.</p>
+</body>
+</html>

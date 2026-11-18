@@ -1,0 +1,36 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: test (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: dtolnay/rust-toolchain@df2a88e9fe4098bad09cb42c3dec7187f15861fc
+        with:
+          toolchain: stable
+          components: rustfmt, clippy
+      - name: format
+        if: matrix.os == 'ubuntu-latest'
+        run: cargo fmt --all --check
+      - name: clippy
+        run: cargo clippy --workspace --all-targets -- -D warnings
+      - name: test
+        run: cargo test --workspace
+      - name: hello hash is stable on this runner
+        run: |
+          cargo run -p mohar-cli --quiet -- build examples/hello.mo > hash1.txt
+          cargo run -p mohar-cli --quiet -- build examples/hello.mo > hash2.txt
+          diff -u hash1.txt hash2.txt

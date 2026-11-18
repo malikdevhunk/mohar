@@ -1,0 +1,14 @@
+# Copy to mohar.toml next to your program, or pass --config.
+# `mohar` walks from the source file toward the filesystem root and uses
+# the first mohar.toml it finds.
+
+[crypto]
+# pq-hybrid | pq-only | legacy
+policy = "pq-hybrid"
+# Q101 stays a warning until this date, then a legacy use is E402.
+# Ignored when policy is pq-only (legacy is always an error).
+allow_legacy_until = "2030-01-01"
+
+[limits]
+fuel = 5000000
+memory_mib = 64
